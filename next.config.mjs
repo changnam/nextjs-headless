@@ -4,6 +4,7 @@ const nextConfig = {
     images: {
       domains: ['cdn.shopify.com'],
     },
+    serverExternalPackages: ["pino", "pino-pretty"],
 };
 
 export default nextConfig;

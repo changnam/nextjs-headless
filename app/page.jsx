@@ -1,7 +1,12 @@
 // app/page.js
+import { logger } from "@/lib/logger";
+const log = logger.child({ module: "app/page" });
 import Link from 'next/link';
 
 export default function HomePage() {
+  log.debug("HomePage called");
+  getCaller();
+  log.debug("HomePage returning");
   return (
     <main className="container">
       <h1>Welcome to Our Store</h1>
@@ -16,4 +21,11 @@ export default function HomePage() {
       </div>
     </main>
   );
+}
+
+function getCaller() {
+  const error = new Error();
+  const stack = error.stack.split('\n');
+  // The first line is the current function, the second one is the caller.
+  log.debug(stack[2].trim()); // Stack[2] will be the caller
 }
