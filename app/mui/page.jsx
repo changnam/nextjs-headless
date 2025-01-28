@@ -1,62 +1,95 @@
 'use client';
 
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
+import { useState } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { amber, grey } from '@mui/material/colors';
+import { CssBaseline, Button, useMediaQuery } from '@mui/material';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    ...theme.applyStyles('dark', {
-      backgroundColor: '#1A2027',
-    }),
-  }));
+export default function MaterialMode() {
+  // const mode = useMediaQuery('(prefers-color-scheme: dark)') ?
+  //   'dark' : 'light';
 
-export default function MaterialGrid() {
+  // 현재 모드를 관리하는 State
+  const [mode, setMode] = useState('light');
+  // State 값 mode를 light⇔dark으로 반전
+  const toggleMode = () => setMode(prev =>
+    prev === 'light' ? 'dark' : 'light'
+  );
+  // 테마 정의
+  const theme = createTheme({
+    palette: {
+      mode,
+      // mode 값에 따라 테마 전환
+      ...(mode === 'light'
+      // 라이트 모드에서 사용하는 팔레트
+      ? {
+          primary: amber,
+        }
+      // 다크 모드에서 사용하는 팔레트     
+      : {
+        primary: {
+          main: grey[500],
+          contrastText: '#fff'
+        },
+        background: {
+          default: grey[900],
+          paper: grey[900],
+        },
+      }),
+    },
+  });
+
   return (
-<Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid size={8}>
-          <Item>size=8</Item>
-        </Grid>
-        <Grid size={4}>
-          <Item>size=4</Item>
-        </Grid>
-        <Grid size={4}>
-          <Item>size=4</Item>
-        </Grid>
-        <Grid size={8}>
-          <Item>size=8</Item>
-        </Grid>
-      </Grid>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Button variant="contained" onClick={toggleMode}>
+        Mode {mode}
+      </Button>
+    </ThemeProvider>
   );
 }
 
 
-// import { Button } from '@mui/material';
-// import Grid from '@mui/material/Unstable_Grid2';
 
-// export default function MaterialGrid() {
+// import { useState } from 'react';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { amber, grey } from '@mui/material/colors';
+// import { CssBaseline, Button, useMediaQuery } from '@mui/material';
+
+// export default function MaterialMode() {
+//   const mode = useMediaQuery('(prefers-color-scheme: dark)') ?
+//     'dark' : 'light';
+
+//   // 테마 정의
+//   const theme = createTheme({
+//     palette: {
+//       mode,
+//       // mode 값에 따라 테마 전환
+//       ...(mode === 'light'
+//       // 라이트 모드에서 사용하는 팔레트
+//       ? {
+//           primary: amber,
+//         }
+//       // 다크 모드에서 사용하는 팔레트     
+//       : {
+//         primary: {
+//           main: grey[500],
+//           contrastText: '#fff'
+//         },
+//         background: {
+//           default: grey[900],
+//           paper: grey[900],
+//         },
+//       }),
+//     },
+//   });
+
 //   return (
-//   <Grid container spacing={2}>
-//     <Grid xs={12} sm={9} md={6}>
-//       <Button variant="contained" fullWidth>1</Button>
-//     </Grid>
-//     <Grid xs={12} sm={3} md={2}>
-//       <Button variant="contained" fullWidth>2</Button>
-//     </Grid>
-//     <Grid xs={12} sm={4} md={3}>
-//       <Button variant="contained" fullWidth>3</Button>
-//     </Grid>
-//     <Grid xs={12}>
-//       <Button variant="contained" fullWidth>4</Button>
-//     </Grid>
-//   </Grid>
+//     <ThemeProvider theme={theme}>
+//       <CssBaseline />
+//       <Button variant="contained">
+//         Mode {mode}
+//       </Button>
+//     </ThemeProvider>
 //   );
 // }
