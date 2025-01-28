@@ -14,6 +14,7 @@ export default function Navbar() {
         <Link href="/collections">Collections</Link>
         <Link href="/about">About Us</Link>
         <Link href="/provider">Provider</Link>
+        <Link href="/mui">Mui</Link>
       </div>
     </nav>
   );
