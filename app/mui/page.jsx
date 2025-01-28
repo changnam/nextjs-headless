@@ -1,45 +1,62 @@
 'use client';
 
-import { useState } from 'react';
-import { Home, Mail, Info, AccountTree } from '@mui/icons-material';
-import { Box, Button, Drawer, List, ListItem, ListItemButton,
-  ListItemText, ListItemIcon } from '@mui/material';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid2';
 
-// 표시용 메뉴 정보 준비
-const menu = [
-  { title: '홈', href: 'home.html', icon: Home },
-  { title: 'Contact Us', href: 'contact.html', icon: Mail },
-  { title: '회사 소개', href: 'company.html', icon: Info  },
-  { title: '사이트맵', href: 'sitemap.html', icon: AccountTree },
-];
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    ...theme.applyStyles('dark', {
+      backgroundColor: '#1A2027',
+    }),
+  }));
 
-export default function MaterialDrawer() {
-  // 드로워 개폐를 위한 플래그
-  const [show, setShow] = useState(false);
-  // 버튼 클릭 시 호출되는 핸들러 (show를 반전)
-  const handleDraw = () => setShow(!show);
-
+export default function MaterialGrid() {
   return (
-    <>
-    <Button onClick={handleDraw}>드로워</Button>
-    <Drawer anchor="left" open={show}>
-      <Box sx={{ height: '100vh' }} onClick={handleDraw}>
-      <List>
-      {/* 미리 준비된 배열을 메뉴로 확장 */}
-      {menu.map(obj => {
-        const Icon = obj.icon;
-        return (
-        <ListItem key={obj.title}>
-          <ListItemButton href={obj.href}>
-            <ListItemIcon><Icon /></ListItemIcon>
-            <ListItemText primary={obj.title} />
-          </ListItemButton>
-        </ListItem>
-        );
-      })}
-      </List>
-      </Box>
-    </Drawer>
-    </>
+<Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid size={8}>
+          <Item>size=8</Item>
+        </Grid>
+        <Grid size={4}>
+          <Item>size=4</Item>
+        </Grid>
+        <Grid size={4}>
+          <Item>size=4</Item>
+        </Grid>
+        <Grid size={8}>
+          <Item>size=8</Item>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
+
+
+// import { Button } from '@mui/material';
+// import Grid from '@mui/material/Unstable_Grid2';
+
+// export default function MaterialGrid() {
+//   return (
+//   <Grid container spacing={2}>
+//     <Grid xs={12} sm={9} md={6}>
+//       <Button variant="contained" fullWidth>1</Button>
+//     </Grid>
+//     <Grid xs={12} sm={3} md={2}>
+//       <Button variant="contained" fullWidth>2</Button>
+//     </Grid>
+//     <Grid xs={12} sm={4} md={3}>
+//       <Button variant="contained" fullWidth>3</Button>
+//     </Grid>
+//     <Grid xs={12}>
+//       <Button variant="contained" fullWidth>4</Button>
+//     </Grid>
+//   </Grid>
+//   );
+// }
