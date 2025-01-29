@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { amber, grey } from '@mui/material/colors';
 import { CssBaseline, Button, useMediaQuery } from '@mui/material';
 
