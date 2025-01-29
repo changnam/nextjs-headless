@@ -24,16 +24,18 @@ export default function RootLayout({ children }) {
     }
   
   return (
-    <html lang="en">
-      <body>
-        <NextThemeProvider attribute="class">
-          <ThemeProvider>
-            <ResponsiveAppBar />
-            <Navbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </NextThemeProvider>
+    <html lang="en">      
+      <body className="flex flex-col min-h-screen">
+        <main className="flex-1 overflow-y-auto">
+          <NextThemeProvider attribute="class">
+            <ThemeProvider>
+              <ResponsiveAppBar />
+              <Navbar />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </NextThemeProvider>
+        </main>
       </body>
     </html>
   );
