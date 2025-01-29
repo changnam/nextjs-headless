@@ -16,8 +16,8 @@ export default function Navbar() {
         <Link href="/provider">Provider</Link>
         <Link href="/mui">Mui</Link>
         <Link href="/theme">Theme</Link>
-        <Link href="/books">Books</Link>
-        <Link href="/reviews">Reviews</Link>
+        <Link href="/books" className='hidden'>Books</Link>
+        <Link href="/reviews" className='hidden'>Reviews</Link>
       </div>
     </nav>
   );
