@@ -45,22 +45,34 @@ export default async function HomePage() {
   const { blocks } = shopifyData?.data || [];
   console.log(blocks);
 
-  return (
-    <main>
-      <h1>Welcome to Our Store</h1>
-      <p>Your one-stop shop for exclusive products.</p>
-      <HeroSection data={blocks[0]}/>
-      <FeatureSection data={blocks[1]}/>
-      <div className="button-group">
-        <Link href="/products">
-          <button className="btn-primary">Shop Products</button>
-        </Link>
-        <Link href="/collections">
-          <button className="btn-secondary">Browse Collections</button>
-        </Link>
-      </div>
-      {/*<h1>{theme === 'light' ? 'Light Theme' : 'Dark Theme'}</h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>*/}
-    </main>
-  );
+  // 데이터에 따라 렌더링할 컴포넌트를 결정하는 함수
+  return <main>{blocks.map(blockRenderer)}</main>;
+  // return (
+  //   <main>
+  //     <h1>Welcome to Our Store</h1>
+  //     <p>Your one-stop shop for exclusive products.</p>
+  //     <HeroSection data={blocks[0]}/>
+  //     <FeatureSection data={blocks[1]}/>
+  //     <div className="button-group">
+  //       <Link href="/products">
+  //         <button className="btn-primary">Shop Products</button>
+  //       </Link>
+  //       <Link href="/collections">
+  //         <button className="btn-secondary">Browse Collections</button>
+  //       </Link>
+  //     </div>
+  //     {/*<h1>{theme === 'light' ? 'Light Theme' : 'Dark Theme'}</h1>
+  //     <button onClick={toggleTheme}>Toggle Theme</button>*/}
+  //   </main>
+  // );
+}
+
+const blockComponents = {
+  "layout.hero-section": HeroSection,
+  "layout.features-section": FeatureSection,
+};
+
+function blockRenderer(block) {
+  const Component = blockComponents[block.__component];
+  return Component ? <Component key={block.id} data={block} /> : null;
 }
