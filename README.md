@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+shadcn 설치
+npx shadcn@latest init
+tailwind.config.mjs , app\global.css 를 update 한다.
+lib\utils.js 가 생긴다.
+npx shadcn@latest add button  <--- button 컴포넌트 설치, components/ui/button.jsx 가 생김
