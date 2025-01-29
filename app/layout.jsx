@@ -4,7 +4,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import './globals.css';
-import { ThemeProvider } from '@/context/ThemeContext';
+// import { ThemeProvider } from '@/context/ThemeContext';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import ButtonAppBar from '@/components/mui/ButtonAppBar';
@@ -28,12 +28,12 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col min-h-screen">
         <main className="flex-1 overflow-y-auto">
           <NextThemeProvider attribute="class">
-            <ThemeProvider>
+            {/*<ThemeProvider>*/}
               <ResponsiveAppBar />
               <Navbar />
               {children}
               <Footer />
-            </ThemeProvider>
+            {/*</ThemeProvider>*/}
           </NextThemeProvider>
         </main>
       </body>

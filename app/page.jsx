@@ -1,15 +1,17 @@
-'use client';
+// 'use client';
 
 // app/page.js
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useTheme } from '@/context/ThemeContext';
+// import { useState, useEffect } from 'react';
+// import { useTheme } from '@/context/ThemeContext';
 import HeroSection from '@/components/HeroSection';
-import { getShopifyData } from '@/lib/shopify';
+import { getHomePageData } from '@/data/loaders';
+import { FeatureSection } from '@/components/FeatureSection';
 
-export default function HomePage() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, toggleTheme } = useTheme();
+export default async function HomePage() {
+  console.log("HomePage called");
+  // const [mounted, setMounted] = useState(false)
+  // const { theme, toggleTheme } = useTheme();
 
   // 향후 구현 예정
   // const shopifyData = await getShopifyData("/api/home-page");
@@ -17,32 +19,38 @@ export default function HomePage() {
   // console.dir(shopifyData, { depth: null });
 
   // const { blocks } = shopifyData.data;
-  const blocks = [
-      {
-        id: 1,
-        title: "Welcome to Our Store",
-        description: "Your one-stop shop for exclusive products.",
-        image: {
-          url: "https://images.pexels.com/photos/4050314/pexels-photo-4050314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",   
-          alt: "Background"
-        }
-      }
-    ];
+  // const blocks = [
+  //     {
+  //       id: 1,
+  //       title: "Welcome to Our Store",
+  //       description: "Your one-stop shop for exclusive products.",
+  //       image: {
+  //         url: "https://images.pexels.com/photos/4050314/pexels-photo-4050314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",   
+  //         alt: "Background"
+  //       }
+  //     }
+  //   ];
 
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
   
+  // useEffect only runs on the client, so now we can safely show the UI
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [])
+
+  // if (!mounted) {
+  //   return null
+  // }
+  
+  const shopifyData = await getHomePageData();
+  const { blocks } = shopifyData?.data || [];
+  console.log(blocks);
+
   return (
-    <main style={{ backgroundColor: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
+    <main>
       <h1>Welcome to Our Store</h1>
       <p>Your one-stop shop for exclusive products.</p>
       <HeroSection data={blocks[0]}/>
+      {/*<FeatureSection />*/}
       <div className="button-group">
         <Link href="/products">
           <button className="btn-primary">Shop Products</button>
@@ -51,8 +59,8 @@ export default function HomePage() {
           <button className="btn-secondary">Browse Collections</button>
         </Link>
       </div>
-      <h1>{theme === 'light' ? 'Light Theme' : 'Dark Theme'}</h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      {/*<h1>{theme === 'light' ? 'Light Theme' : 'Dark Theme'}</h1>
+      <button onClick={toggleTheme}>Toggle Theme</button>*/}
     </main>
   );
 }
