@@ -7,7 +7,7 @@ export default async function ProductsPage() {
 
   return (
     <main className="container">
-      <h1>All Products</h1>
+      <h1 className="dark:text-red-500">All Products</h1>
       <div className="products-grid">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

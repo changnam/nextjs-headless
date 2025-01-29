@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import ThemeToggle from '@/components/ThemeToggle';
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
@@ -17,11 +18,16 @@ const ThemeSwitch = () => {
   }
 
   return (
+    <>
     <select value={theme} onChange={e => setTheme(e.target.value)}>
       <option value="system">System</option>
       <option value="dark">Dark</option>
       <option value="light">Light</option>
     </select>
+
+    <ThemeToggle />
+    <h1 className="dark:text-red-300">dark mode 에 따라 색깔이 바뀐다. </h1>
+    </>
   )
 }
 
