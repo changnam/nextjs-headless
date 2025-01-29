@@ -1,9 +1,25 @@
+'use client';
+
 // app/page.js
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function HomePage() {
+  const [mounted, setMounted] = useState(false)
+  const { theme, toggleTheme } = useTheme();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+  
   return (
-    <main className="container">
+    <main style={{ backgroundColor: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
       <h1>Welcome to Our Store</h1>
       <p>Your one-stop shop for exclusive products.</p>
       <div className="button-group">
@@ -14,6 +30,8 @@ export default function HomePage() {
           <button className="btn-secondary">Browse Collections</button>
         </Link>
       </div>
+      <h1>{theme === 'light' ? 'Light Theme' : 'Dark Theme'}</h1>
+      <button onClick={toggleTheme}>Toggle Theme</button>
     </main>
   );
 }
