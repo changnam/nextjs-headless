@@ -8,6 +8,8 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import ButtonAppBar from '@/components/mui/ButtonAppBar';
+import ResponsiveAppBar from '@/components/mui/ResponsiveAppBar';
+import PrimarySearchAppBar from '@/components/mui/PrimarySearchAppBar';
 
 export default function RootLayout({ children }) {
     const [mounted, setMounted] = useState(false)
@@ -26,7 +28,7 @@ export default function RootLayout({ children }) {
       <body>
         <NextThemeProvider attribute="class">
           <ThemeProvider>
-            <ButtonAppBar />
+            <PrimarySearchAppBar />
             <Navbar />
             {children}
             <Footer />
