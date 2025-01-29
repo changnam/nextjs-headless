@@ -15,12 +15,18 @@
   }
 }
 
+/* class="dark main" 처럼 multi인 경우 동작 안함. 아래의 .dark 를 사용할것 
 [class='dark'] {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
-
+*/
 [data-theme='dark'] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
@@ -29,12 +35,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
 }
 
 .container {
