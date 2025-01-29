@@ -4,10 +4,30 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/context/ThemeContext';
+import HeroSection from '@/components/HeroSection';
+import { getShopifyData } from '@/lib/shopify';
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false)
   const { theme, toggleTheme } = useTheme();
+
+  // 향후 구현 예정
+  // const shopifyData = await getShopifyData("/api/home-page");
+
+  // console.dir(shopifyData, { depth: null });
+
+  // const { blocks } = shopifyData.data;
+  const blocks = [
+      {
+        id: 1,
+        title: "Welcome to Our Store",
+        description: "Your one-stop shop for exclusive products.",
+        image: {
+          url: "https://images.pexels.com/photos/4050314/pexels-photo-4050314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",   
+          alt: "Background"
+        }
+      }
+    ];
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -22,6 +42,7 @@ export default function HomePage() {
     <main style={{ backgroundColor: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
       <h1>Welcome to Our Store</h1>
       <p>Your one-stop shop for exclusive products.</p>
+      <HeroSection data={blocks[0]}/>
       <div className="button-group">
         <Link href="/products">
           <button className="btn-primary">Shop Products</button>

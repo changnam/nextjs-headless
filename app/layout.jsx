@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       <body>
         <NextThemeProvider attribute="class">
           <ThemeProvider>
-            <PrimarySearchAppBar />
+            <ResponsiveAppBar />
             <Navbar />
             {children}
             <Footer />
