@@ -50,7 +50,7 @@ export default async function HomePage() {
       <h1>Welcome to Our Store</h1>
       <p>Your one-stop shop for exclusive products.</p>
       <HeroSection data={blocks[0]}/>
-      {/*<FeatureSection />*/}
+      <FeatureSection data={blocks[1]}/>
       <div className="button-group">
         <Link href="/products">
           <button className="btn-primary">Shop Products</button>
