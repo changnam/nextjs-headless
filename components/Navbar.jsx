@@ -19,8 +19,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar">
-      <Link href="/">
+    <nav className="flex items-center justify-between p-5 bg-gray-800 text-white">
+      <Link href="/" className="flex-none items-center gap-2">
         {/*<Image src="/images/logo.png" alt="Logo" width={100} height={50} />*/}
         <svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="gray" />
@@ -28,7 +28,7 @@ export default function Navbar() {
           <text x="75" y="60" fontSize="30" textAnchor="middle" fill="black">BlackMotiv</text>
         </svg>
       </Link>
-      <div className="nav-links">
+      <div className="flex flex-wrap items-center gap-5">
         <Link href="/">Home</Link>
         <Link href="/products">Products</Link>
         <Link href="/collections">Collections</Link>
