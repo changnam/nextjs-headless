@@ -46,7 +46,8 @@ export default async function HomePage() {
   console.log(blocks);
 
   // 데이터에 따라 렌더링할 컴포넌트를 결정하는 함수
-  return <main>{blocks.map(blockRenderer)}</main>;
+  // return <main>{blocks.map(blockRenderer)}</main>;
+return (<><p>블라블라라</p></>);
   // return (
   //   <main>
   //     <h1>Welcome to Our Store</h1>
