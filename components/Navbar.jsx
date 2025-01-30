@@ -33,6 +33,7 @@ export default function Navbar() {
         <Link href="/theme">Theme</Link>
         <Link href="/books" className='hidden'>Books</Link>
         <Link href="/reviews" className='hidden'>Reviews</Link>
+        <Link href="/popover" >Popover</Link>
         <Link href="#" ><SearchIcon></SearchIcon></Link>
         <Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>
         <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>
