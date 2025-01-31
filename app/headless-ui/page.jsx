@@ -2,9 +2,13 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 export default function Example() {
   return (
+    <div className='flex items-center justify-center text-black'>
+    <div className='w-2/12 min-h-screen'>
+        blabla
+    </div>
     <Menu>
       <MenuButton>My account</MenuButton>
-      <MenuItems anchor="bottom" className="w-[var(--button-width)]">
+      <MenuItems anchor="top start">
         <MenuItem>
           <a className="block data-[focus]:bg-blue-100" href="/settings">
             Settings
@@ -22,5 +26,6 @@ export default function Example() {
         </MenuItem>
       </MenuItems>
     </Menu>
+    </div>
   )
 }
