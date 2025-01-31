@@ -1,21 +1,37 @@
+'use client';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
-const links = [
-    { href: '/settings', label: 'Settings' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
-  ]
+export default function Example() {
+  function showSettingsDialog() {
+    alert('Open settings dialog!')
+  }
 
-export default function MyMenu() {
   return (
     <Menu>
-      <MenuButton className="data-[active]:bg-blue-200">My account</MenuButton>
+      <MenuButton>My account</MenuButton>
       <MenuItems anchor="bottom">
-        {links.map((link) => (
-          <MenuItem key={link.href} className="block data-[focus]:bg-blue-200">
-            <a href={link.href}>{link.label}</a>
+        <MenuItem>
+          <button onClick={showSettingsDialog} className="block w-full text-left data-[focus]:bg-blue-100">
+            Settings
+          </button>
+        </MenuItem>
+        <MenuItem>
+          <a className="block data-[focus]:bg-blue-100" href="/support">
+            Support
+          </a>
+        </MenuItem>
+        <MenuItem>
+          <a className="block data-[focus]:bg-blue-100" href="/license">
+            License
+          </a>
+        </MenuItem>
+        <form action="/logout" method="post">
+          <MenuItem>
+            <button type="submit" className="block w-full text-left data-[focus]:bg-blue-100">
+              Sign out
+            </button>
           </MenuItem>
-        ))}
+        </form>
       </MenuItems>
     </Menu>
   )
