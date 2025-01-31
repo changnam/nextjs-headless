@@ -1,28 +1,25 @@
+'use client';
+
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { forwardRef } from 'react'
+
+let MyCustomButton = forwardRef(function (props, ref) {
+  return <button className="..." ref={ref} {...props} />
+})
 
 export default function Example() {
   return (
     <Menu>
-      <MenuButton>My account</MenuButton>
-      <MenuItems
-        anchor="bottom"
-        transition
-        className="origin-top transition duration-800 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
-      >
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/settings">
-            Settings
-          </a>
+      <MenuButton as={MyCustomButton}>My account</MenuButton>
+      <MenuItems anchor="bottom" as="section">
+        <MenuItem as="a" className="block data-[focus]:bg-blue-100" href="/settings">
+          Settings
         </MenuItem>
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/support">
-            Support
-          </a>
+        <MenuItem as="a" className="block data-[focus]:bg-blue-100" href="/support">
+          Support
         </MenuItem>
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/license">
-            License
-          </a>
+        <MenuItem as="a" className="block data-[focus]:bg-blue-100" href="/license">
+          License
         </MenuItem>
       </MenuItems>
     </Menu>
