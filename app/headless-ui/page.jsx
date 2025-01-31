@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Menu>
       <MenuButton>My account</MenuButton>
-      <MenuItems anchor="bottom" className="w-96">
+      <MenuItems anchor="bottom" className="w-[var(--button-width)]">
         <MenuItem>
           <a className="block data-[focus]:bg-blue-100" href="/settings">
             Settings
