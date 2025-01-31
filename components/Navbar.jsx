@@ -19,16 +19,16 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between p-5 bg-gray-800 text-white">
-      <Link href="/" className="flex-none items-center gap-2">
+    <nav className="flex items-center justify-between p-2 bg-gray-800 text-white">
+      <Link href="/" className="flex-none items-start gap-2">
         {/*<Image src="/images/logo.png" alt="Logo" width={100} height={50} />*/}
-        <svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="gray" />
-          <circle cx="75" cy="50" r="40" fill="white" />
-          <text x="75" y="60" fontSize="30" textAnchor="middle" fill="black">BlackMotiv</text>
+        <svg width="150" height="30" xmlns="http://www.w3.org/2000/svg">
+          {/*<rect width="100%" height="100%" fill="gray" />*/}
+          <circle cx="75" cy="50" r="40" fill="tomato" />
+          <text x="75" y="30" fontSize="30" textAnchor="middle" fill="white">BlackMotiv</text>
         </svg>
       </Link>
-      <div className="flex flex-wrap items-center gap-5">
+      <div className="hidden md:block md:mx-auto">
         <Link href="/">Home</Link>
         <Link href="/products">Products</Link>
         <Link href="/collections">Collections</Link>
