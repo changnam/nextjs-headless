@@ -44,3 +44,5 @@ logs/
 *storybook.log
 
 .storybook/
+
+debug.log

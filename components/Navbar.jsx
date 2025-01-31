@@ -40,6 +40,7 @@ export default function Navbar() {
         <Link href="/reviews" className='hidden'>Reviews</Link>
         <Link href="/popover" >Popover</Link>
         <Link href="/navbar" >ReactNavbar</Link>
+        <Link href="/headless-ui" >HeadlessUI</Link>
         <Link href="#" ><SearchIcon></SearchIcon></Link>
         <Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>
         <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>
