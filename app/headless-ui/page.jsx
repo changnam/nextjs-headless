@@ -1,26 +1,37 @@
-import { Menu, MenuButton, MenuItem, MenuItems, MenuSeparator } from '@headlessui/react'
+import { Menu, MenuButton, MenuHeading, MenuItem, MenuItems, MenuSection, MenuSeparator } from '@headlessui/react'
 
 export default function Example() {
   return (
     <Menu>
       <MenuButton>My account</MenuButton>
       <MenuItems anchor="bottom">
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/settings">
-            Settings
-          </a>
-        </MenuItem>
+        <MenuSection>
+          <MenuHeading className="text-sm opacity-50">Settings</MenuHeading>
+          <MenuItem>
+            <a className="block data-[focus]:bg-blue-100" href="/profile">
+              My profile
+            </a>
+          </MenuItem>
+          <MenuItem>
+            <a className="block data-[focus]:bg-blue-100" href="/notifications">
+              Notifications
+            </a>
+          </MenuItem>
+        </MenuSection>
         <MenuSeparator className="my-1 h-px bg-black" />
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/support">
-            Support
-          </a>
-        </MenuItem>
-        <MenuItem>
-          <a className="block data-[focus]:bg-blue-100" href="/license">
-            License
-          </a>
-        </MenuItem>
+        <MenuSection>
+          <MenuHeading className="text-sm opacity-50">Support</MenuHeading>
+          <MenuItem>
+            <a className="block data-[focus]:bg-blue-100" href="/support">
+              Documentation
+            </a>
+          </MenuItem>
+          <MenuItem>
+            <a className="block data-[focus]:bg-blue-100" href="/license">
+              License
+            </a>
+          </MenuItem>
+        </MenuSection>
       </MenuItems>
     </Menu>
   )
