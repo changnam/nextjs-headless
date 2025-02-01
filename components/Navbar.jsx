@@ -20,14 +20,12 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between p-0 md:p-2 bg-gray-800 text-white">
-      <Link href="/" className="flex-none items-start gap-2 hidden md:block">
+    <nav className="flex items-center justify-between p-0 md:p-2 bg-[#333] text-white">
+      <Link href="/" className="flex-none items-start gap-2 hidden md:block bg-transparent">
         {/*<Image src="/images/logo.png" alt="Logo" width={100} height={50} />*/}
-        <svg width="150" height="30" xmlns="http://www.w3.org/2000/svg">
-          {/*<rect width="100%" height="100%" fill="gray" />*/}
-          <circle cx="75" cy="50" r="40" fill="tomato" />
-          <text x="75" y="30" fontSize="30" textAnchor="middle" fill="white">BlackMotiv</text>
-        </svg>
+        <Image 
+          className="w-full h-auto " src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
+        </Image>
       </Link>
       <Link href="#" className="block md:hidden">
       <Image
