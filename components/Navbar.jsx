@@ -20,7 +20,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between p-2 bg-gray-800 text-white">
+    <nav className="flex items-center justify-between p-0 md:p-2 bg-gray-800 text-white">
       <Link href="/" className="flex-none items-start gap-2 hidden md:block">
         {/*<Image src="/images/logo.png" alt="Logo" width={100} height={50} />*/}
         <svg width="150" height="30" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@ export default function Navbar() {
       </Link>
       <Link href="#" className="block md:hidden">
       <Image
-          className="invert dark:invert"
+          className="invert dark:invert "
           src="/hamburger-md-svgrepo-com.svg"
           alt="Hamburger menu"
           width={50}
