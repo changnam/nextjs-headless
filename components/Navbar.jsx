@@ -16,7 +16,7 @@ export default function Navbar() {
   };
   // const person
   return (
-    <nav className="flex items-center justify-between bg-[#333] p-4 text-white">
+    <nav className="flex flex-wrap items-end justify-between bg-[#333] p-4 text-white">
       <div className='flex-none'>
       <Link href="/" className="hidden md:block">
         <Image 
@@ -80,13 +80,13 @@ export default function Navbar() {
           <Link href="/reviews" className='hidden'>Reviews</Link>
           <Link href="/popover" >Popover</Link>
           <Link href="/navbar" >ReactNavbar</Link>
-          <Link href="/headless-ui" >HeadlessUI</Link>
+          <Link href="/headless-ui" className="hidden">HeadlessUI</Link>
         </div>
       </div>
-      <div className="block flex-none ml-2">
-        <Link href="#" ><SearchIcon></SearchIcon></Link>
+      <div className="flex flex-none ml-2 border border-red-900">
+        <Link href="#" className="border border-yellow-900"><SearchIcon></SearchIcon></Link>
         {/*<Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>*/}
-        <Menu>
+        <Menu as="div" className="border border-green-900">
           <MenuButton className="data-[active]:bg-blue-500"><PersonOutlineIcon></PersonOutlineIcon></MenuButton>
           <MenuItems anchor="bottom" className="bg-white">
             <MenuSection>
@@ -104,7 +104,16 @@ export default function Navbar() {
             </MenuSection>
           </MenuItems>
         </Menu>
-        <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>
+        {/*<Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>*/}
+        <div>
+          <button className="relative" onClick={() => handleCartClick()}>
+            {/*<Image src="./cart.svg" width={40} height={40} alt="shopping cart icon" />*/}
+            <ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon>
+            <div className="rounded-full flex justify-center items-center bg-emerald-500 text-xs text-white absolute w-5 h-5 -bottom-1 -right-2">
+              0
+            </div>
+          </button>
+        </div>
       </div>
     </nav>
   );
