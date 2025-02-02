@@ -2,12 +2,14 @@
 
 import ReactPopover from "@/components/ReactPopover";
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
-import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import { Dialog, DialogPanel, DialogTitle, Transition } from '@headlessui/react'
 import { useState } from "react";
+import clsx from 'clsx'
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="w-screen h-screen flex justify-center items-center gap-4">
@@ -61,6 +63,32 @@ const Page = () => {
       <button onClick={() => setIsOpen(true)} className="bg-red-500 px-4 py-2 text-white rounded">
         Open Modal
       </button>
+      <button onClick={() => setOpen((open) => !open)}>Toggle</button>
+      <Transition show={open}>
+        <div className="transition duration-900 ease-in data-[closed]:opacity-0">I will fade in and out</div>
+      </Transition>
+      
+      <div className="relative">
+      <button onClick={() => setOpen((open) => !open)}>Toggle</button>
+      <Transition show={open}>
+        <div
+          className={clsx([
+            // Base styles
+            'absolute w-48 border transition ease-in-out',
+            // Shared closed styles
+            'data-[closed]:opacity-0',
+            // Entering styles
+            'data-[enter]:duration-100 data-[enter]:data-[closed]:-translate-x-full',
+            // Leaving styles
+            'data-[leave]:duration-300 data-[leave]:data-[closed]:translate-x-full',
+          ])}
+        >
+          I will enter from the left and leave to the right
+        </div>
+      </Transition>
+    </div>
+
+
     </div>
   );
 };
