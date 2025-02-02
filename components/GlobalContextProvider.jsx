@@ -35,9 +35,15 @@ export function GlobalContextProvider({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("/api/user"); // Replace with your API endpoint
-        if (!response.ok) throw new Error("Failed to fetch user");
-        const data = await response.json();
+        // const response = await fetch("/api/user"); // Replace with your API endpoint
+        // if (!response.ok) throw new Error("Failed to fetch user");
+        // const data = await response.json();
+        return new Promise(resolve => {
+            const data = {name: "고창남"};
+            setTimeout(() => {
+              resolve(data);
+            }, 1);
+          });
         setUser(data);
       } catch (err) {
         setError(err.message);
