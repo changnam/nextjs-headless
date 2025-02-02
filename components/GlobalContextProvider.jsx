@@ -1,11 +1,14 @@
 'use client';
 
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
   const [globalContext, setGlobalContext] = useState({items: [], total: 0});
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const incrementCounter = () => {
     //console.log("incrementCounter called"+globalContext.total);
@@ -27,8 +30,27 @@ export function GlobalContextProvider({ children }) {
     );
   };
 
+
+  // Fetch user data from server on app start
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("/api/user"); // Replace with your API endpoint
+        if (!response.ok) throw new Error("Failed to fetch user");
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
-    <GlobalContext.Provider value={{ globalContext, incrementCounter, decrementCounter }}>
+    <GlobalContext.Provider value={{ globalContext, incrementCounter, decrementCounter, user, setUser, loading, error }}>
       {children}
     </GlobalContext.Provider>
   );
