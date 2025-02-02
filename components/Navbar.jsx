@@ -39,7 +39,7 @@ export default function Navbar() {
         </Link>
         </div>
       <div className="block sm:hidden flex-1">
-        <div className="flex justify-end space-x-1">
+        <div className="flex justify-end space-x-4">
           <Link href="/theme">Theme</Link>
           <Link href="/books" className='hidden'>Books</Link>
           <Link href="/reviews" className='hidden'>Reviews</Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="hidden sm:block md:hidden flex-1">
-        <div className="flex justify-end space-x-1">
+        <div className="flex justify-end space-x-4">
           <Link href="/about">AboutUs</Link>
           <Link href="/provider">Provider</Link>
           <Link href="/mui" className='hidden'>Mui</Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="hidden md:block flex-1 {/* bg-red-500*/}">
-        <div className="flex justify-end space-x-1">
+        <div className="flex justify-end space-x-4">
           <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
           <Link href="/collections">Collections</Link>
