@@ -48,7 +48,7 @@ const Page = () => {
           <a href="/training">Training</a>
         </PopoverPanel>
       </Popover>
-      <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
+      <Dialog open={isOpen} onClose={()=> {}} className="relative z-50">
         <div className="fixed inset-0 bg-black/30"></div>
         <div className="fixed inset-0 flex justify-center items-center">
           <DialogPanel className="bg-white p-6 rounded">
