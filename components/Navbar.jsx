@@ -8,28 +8,18 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { useState, useEffect } from 'react';
 import Hamburger from '@/components/Hamburger';
 export default function Navbar() {
-  const [mounted, setMounted] = useState(false)
-
-//  useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-   if (!mounted) {
-    return null
-  }
 
   return (
-    <nav className="flex items-center justify-between p-0 md:p-2 bg-[#333] text-white">
-      <Link href="/" className="flex-none items-start gap-2 hidden md:block bg-transparent">
-        {/*<Image src="/images/logo.png" alt="Logo" width={100} height={50} />*/}
+    <nav className="flex items-center justify-between ">
+      <div>
+      <Link href="/" className="hidden md:block">
         <Image 
-          className="w-full h-auto " src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
+          className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
         </Image>
       </Link>
-      <Link href="#" className="block md:hidden">
+      <Link href="#" className="block sm:hidden">
       <Image
-          className="invert dark:invert "
+          className="w-[50px]"
           src="/hamburger-md-svgrepo-com.svg"
           alt="Hamburger menu"
           width={50}
@@ -37,7 +27,31 @@ export default function Navbar() {
           priority
         />
         </Link>
-      <div className="hidden md:block md:mx-auto">
+        <Link href="#" className="hidden sm:block md:hidden">
+      <Image
+          className="w-[50px]"
+          src="/hamburger-md-svgrepo-com.svg"
+          alt="Hamburger menu"
+          width={50}
+          height={38}
+          priority
+        />
+        </Link>
+        </div>
+        <div className="block sm:hidden ">
+        <Link href="/popover" >Popover</Link>
+        <Link href="/navbar" >ReactNavbar</Link>
+        <Link href="/headless-ui" >HeadlessUI</Link>
+      </div>
+      <div className="hidden sm:block md:hidden">
+        <Link href="/provider">Provider</Link>
+        <Link href="/mui">Mui</Link>
+        <Link href="/theme">Theme</Link>
+        <Link href="/popover" >Popover</Link>
+        <Link href="/navbar" >ReactNavbar</Link>
+        <Link href="/headless-ui" >HeadlessUI</Link>
+      </div>
+      <div className="hidden md:block ">
         <Link href="/">Home</Link>
         <Link href="/products">Products</Link>
         <Link href="/collections">Collections</Link>
@@ -50,7 +64,8 @@ export default function Navbar() {
         <Link href="/popover" >Popover</Link>
         <Link href="/navbar" >ReactNavbar</Link>
         <Link href="/headless-ui" >HeadlessUI</Link>
-        {/*<Link href="#" ></Link>*/}
+      </div>
+      <div className="block ">
         <Link href="#" ><SearchIcon></SearchIcon></Link>
         <Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>
         <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>

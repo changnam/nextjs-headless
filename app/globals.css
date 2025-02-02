@@ -6,12 +6,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --breakpoint: "desktop"; /* Default */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --breakpoint: "mobile";
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --breakpoint: "tablet";
   }
 }
 

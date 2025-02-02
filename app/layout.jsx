@@ -1,7 +1,7 @@
-// 'use client';
+'use client';
 
 // app/layout.js
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
 // import { ThemeProvider } from '@/context/ThemeContext';
@@ -12,6 +12,18 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes';
 // import PrimarySearchAppBar from '@/components/mui/PrimarySearchAppBar';
 
 export default function RootLayout({ children }) {
+
+  // const resizeObserver = new ResizeObserver(() => {
+  //   if (window.innerWidth <= 640) {
+  //     console.log("Mobile view");
+  //   } else if (window.innerWidth <= 768) {
+  //     console.logalert("Tablet View");
+  //   } else  {
+  //     console.logalert("Desktop view");
+  //   }
+  // });
+  // resizeObserver.observe(document.body);
+  
   
   return (
     <html lang="en" suppressHydrationWarning>      
@@ -20,7 +32,7 @@ export default function RootLayout({ children }) {
           <NextThemeProvider attribute="class">
             {/*<ThemeProvider>*/}
              {/*<ResponsiveAppBar />*/}
-              <Navbar />
+              <Header />
               {children}
               <Footer />
             {/*</ThemeProvider>*/}
