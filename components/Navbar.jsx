@@ -5,10 +5,16 @@ import Image from 'next/image';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { useState, useEffect } from 'react';
-import Hamburger from '@/components/Hamburger';
-export default function Navbar() {
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
+import { Menu, MenuButton, MenuItems, MenuItem, MenuSeparator, MenuSection, MenuHeading } from '@headlessui/react';
 
+export default function Navbar() {
+  const profileMenus = {
+    'Profile': '/profile',
+    'Settings': '/settings',
+    'Sign out': '/sign-out'
+  };
+  // const person
   return (
     <nav className="flex items-center justify-between bg-[#333] p-4 text-white">
       <div className='flex-none'>
@@ -79,7 +85,25 @@ export default function Navbar() {
       </div>
       <div className="block flex-none ml-2">
         <Link href="#" ><SearchIcon></SearchIcon></Link>
-        <Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>
+        {/*<Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>*/}
+        <Menu>
+          <MenuButton className="data-[active]:bg-blue-500"><PersonOutlineIcon></PersonOutlineIcon></MenuButton>
+          <MenuItems anchor="bottom" className="bg-white">
+            <MenuSection>
+              <MenuHeading className="text-sm opacity-50">Settings</MenuHeading>
+              <MenuItem>
+                <a className="block data-[focus]:bg-blue-100" href="/profile">
+                  My profile
+                </a>
+              </MenuItem>
+              <MenuItem>
+                <a className="block data-[focus]:bg-blue-100" href="/notifications">
+                  Notifications
+                </a>
+              </MenuItem>
+            </MenuSection>
+          </MenuItems>
+        </Menu>
         <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>
       </div>
     </nav>
