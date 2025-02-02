@@ -19,7 +19,7 @@ export default function Navbar() {
       </Link>
       <Link href="#" className="block sm:hidden">
       <Image
-          className="w-[50px]"
+          className="invert w-[50px]"
           src="/hamburger-md-svgrepo-com.svg"
           alt="Hamburger menu"
           width={50}
@@ -29,7 +29,7 @@ export default function Navbar() {
         </Link>
         <Link href="#" className="hidden sm:block md:hidden">
       <Image
-          className="w-[50px]"
+          className="invert w-[50px]"
           src="/hamburger-md-svgrepo-com.svg"
           alt="Hamburger menu"
           width={50}
