@@ -74,13 +74,13 @@ export default function Navbar() {
           <Link href="/collections">Collections</Link>
           <Link href="/about">AboutUs</Link>
           <Link href="/provider">Provider</Link>
-          <Link href="/mui" className='hidden'>Mui</Link>
+          <Link href="/mui" >Mui</Link>
           <Link href="/theme">Theme</Link>
           <Link href="/books" className='hidden'>Books</Link>
           <Link href="/reviews" className='hidden'>Reviews</Link>
           <Link href="/popover" >Popover</Link>
           <Link href="/navbar" >ReactNavbar</Link>
-          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
+          <Link href="/headless-ui" >HeadlessUI</Link>
         </div>
       </div>
       <div className="block flex-none ml-2">
