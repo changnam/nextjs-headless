@@ -10,8 +10,8 @@ import Hamburger from '@/components/Hamburger';
 export default function Navbar() {
 
   return (
-    <nav className="flex items-center justify-between ">
-      <div>
+    <nav className="flex items-center justify-between bg-[#333] p-4 text-white">
+      <div className='flex-none'>
       <Link href="/" className="hidden md:block">
         <Image 
           className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
@@ -38,34 +38,46 @@ export default function Navbar() {
         />
         </Link>
         </div>
-        <div className="block sm:hidden ">
-        <Link href="/popover" >Popover</Link>
-        <Link href="/navbar" >ReactNavbar</Link>
-        <Link href="/headless-ui" >HeadlessUI</Link>
+      <div className="block sm:hidden flex-1">
+        <div className="flex justify-end space-x-1">
+          <Link href="/theme">Theme</Link>
+          <Link href="/books" className='hidden'>Books</Link>
+          <Link href="/reviews" className='hidden'>Reviews</Link>
+          <Link href="/popover" >Popover</Link>
+          <Link href="/navbar" >ReactNavbar</Link>
+          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
+        </div>
       </div>
-      <div className="hidden sm:block md:hidden">
-        <Link href="/provider">Provider</Link>
-        <Link href="/mui">Mui</Link>
-        <Link href="/theme">Theme</Link>
-        <Link href="/popover" >Popover</Link>
-        <Link href="/navbar" >ReactNavbar</Link>
-        <Link href="/headless-ui" >HeadlessUI</Link>
+      <div className="hidden sm:block md:hidden flex-1">
+        <div className="flex justify-end space-x-1">
+          <Link href="/about">AboutUs</Link>
+          <Link href="/provider">Provider</Link>
+          <Link href="/mui" className='hidden'>Mui</Link>
+          <Link href="/theme">Theme</Link>
+          <Link href="/books" className='hidden'>Books</Link>
+          <Link href="/reviews" className='hidden'>Reviews</Link>
+          <Link href="/popover" >Popover</Link>
+          <Link href="/navbar" >ReactNavbar</Link>
+          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
+        </div>
       </div>
-      <div className="hidden md:block ">
-        <Link href="/">Home</Link>
-        <Link href="/products">Products</Link>
-        <Link href="/collections">Collections</Link>
-        <Link href="/about">About Us</Link>
-        <Link href="/provider">Provider</Link>
-        <Link href="/mui">Mui</Link>
-        <Link href="/theme">Theme</Link>
-        <Link href="/books" className='hidden'>Books</Link>
-        <Link href="/reviews" className='hidden'>Reviews</Link>
-        <Link href="/popover" >Popover</Link>
-        <Link href="/navbar" >ReactNavbar</Link>
-        <Link href="/headless-ui" >HeadlessUI</Link>
+      <div className="hidden md:block flex-1 {/* bg-red-500*/}">
+        <div className="flex justify-end space-x-1">
+          <Link href="/">Home</Link>
+          <Link href="/products">Products</Link>
+          <Link href="/collections">Collections</Link>
+          <Link href="/about">AboutUs</Link>
+          <Link href="/provider">Provider</Link>
+          <Link href="/mui" className='hidden'>Mui</Link>
+          <Link href="/theme">Theme</Link>
+          <Link href="/books" className='hidden'>Books</Link>
+          <Link href="/reviews" className='hidden'>Reviews</Link>
+          <Link href="/popover" >Popover</Link>
+          <Link href="/navbar" >ReactNavbar</Link>
+          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
+        </div>
       </div>
-      <div className="block ">
+      <div className="block flex-none ml-2">
         <Link href="#" ><SearchIcon></SearchIcon></Link>
         <Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>
         <Link href="#" ><ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon></Link>
