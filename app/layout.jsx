@@ -5,6 +5,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
 // import { ThemeProvider } from '@/context/ThemeContext';
+import { GlobalContextProvider,useGlobalContext } from '@/components/GlobalContextProvider';
+
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 // import { useEffect, useState } from 'react';
 // import ButtonAppBar from '@/components/mui/ButtonAppBar';
@@ -30,12 +32,14 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col min-h-screen">
         <main className="flex-1 overflow-y-auto">
           <NextThemeProvider attribute="class">
+            <GlobalContextProvider>
             {/*<ThemeProvider>*/}
              {/*<ResponsiveAppBar />*/}
               <Header />
               {children}
               <Footer />
             {/*</ThemeProvider>*/}
+            </GlobalContextProvider>  
           </NextThemeProvider>
         </main>
       </body>

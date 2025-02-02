@@ -7,6 +7,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { Menu, MenuButton, MenuItems, MenuItem, MenuSeparator, MenuSection, MenuHeading } from '@headlessui/react';
+import { useGlobalContext } from './GlobalContextProvider';
 
 export default function Navbar() {
   const profileMenus = {
@@ -14,6 +15,10 @@ export default function Navbar() {
     'Settings': '/settings',
     'Sign out': '/sign-out'
   };
+
+  const { globalContext, incrementCounter, decrementCounter } = useGlobalContext();
+  const handleCartClick = () => {};
+  
   // const person
   return (
     <nav className="flex flex-wrap items-end justify-between bg-[#333] p-4 text-white">
@@ -109,9 +114,9 @@ export default function Navbar() {
           <button className="relative" onClick={() => handleCartClick()}>
             {/*<Image src="./cart.svg" width={40} height={40} alt="shopping cart icon" />*/}
             <ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon>
-            <div className="rounded-full flex justify-center items-center bg-emerald-500 text-xs text-white absolute w-5 h-5 -bottom-1 -right-2">
-              0
-            </div>
+            {globalContext.total > 0 && (<div className="rounded-full flex justify-center items-center bg-emerald-500 text-xs text-white absolute w-5 h-5 -bottom-1 -right-2">
+              {globalContext.total}
+            </div>)}
           </button>
         </div>
       </div>

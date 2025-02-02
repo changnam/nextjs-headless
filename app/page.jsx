@@ -10,6 +10,7 @@ import { FeatureSection } from '@/components/FeatureSection';
 
 export default async function HomePage() {
   console.log("HomePage called");
+ 
   // const [mounted, setMounted] = useState(false)
   // const { theme, toggleTheme } = useTheme();
 
