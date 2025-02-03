@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en" suppressHydrationWarning>      
-      <body className="flex flex-col min-h-screen">
-        <main className="flex-1 overflow-y-auto">
+      <body >
+        <main >
           <NextThemeProvider attribute="class">
             <GlobalContextProvider>
             {/*<ThemeProvider>*/}
