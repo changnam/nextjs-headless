@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className="relative flex w-full justify-between bg-gray-100 p-4">
       <div className='flex-none flex-start border border-red-500'>
-        <Link href="#" className="block sm:hidden">
+        <Link href="#" className="block lg:hidden">
           <Image
               className="w-[30px]"
               src="/hamburger-md-svgrepo-com.svg"
@@ -33,48 +33,20 @@ export default function Navbar() {
               priority
             />
         </Link>
-        <Link href="#" className="hidden sm:block md:hidden">
-          <Image
-              className="w-[30px]"
-              src="/hamburger-md-svgrepo-com.svg"
-              alt="Hamburger menu"
-              width={50}
-              height={38}
-              priority
-            />
-        </Link>
-      </div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 border border-red-500" >
-        <Link href="/" className="text-center sm:hidden">
+        <Link href="/" className="hidden lg:block">
           <Image 
             className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
           </Image>
         </Link>
       </div>
-      <div className="hidden sm:hidden flex-1">
-        <div className="flex justify-end space-x-4">
-          <Link href="/theme">Theme</Link>
-          <Link href="/books" className='hidden'>Books</Link>
-          <Link href="/reviews" className='hidden'>Reviews</Link>
-          <Link href="/popover" >Popover</Link>
-          <Link href="/navbar" >ReactNavbar</Link>
-          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
-        </div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 border border-red-500 lg:hidden" >
+        <Link href="/" className="text-center">
+          <Image 
+            className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
+          </Image>
+        </Link>
       </div>
-      <div className="hidden sm:block md:hidden flex-1">
-        <div className="flex justify-end space-x-4">
-          <Link href="/about">AboutUs</Link>
-          <Link href="/provider">Provider</Link>
-          <Link href="/mui" className='hidden'>Mui</Link>
-          <Link href="/theme">Theme</Link>
-          <Link href="/books" className='hidden'>Books</Link>
-          <Link href="/reviews" className='hidden'>Reviews</Link>
-          <Link href="/popover" >Popover</Link>
-          <Link href="/navbar" >ReactNavbar</Link>
-          <Link href="/headless-ui" className='hidden'>HeadlessUI</Link>
-        </div>
-      </div>
-      <div className="hidden md:block flex-1 {/* bg-red-500*/}">
+      <div className="hidden lg:block flex-1 {/* bg-red-500*/}">
         <div className="flex justify-end space-x-4">
           <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
@@ -91,7 +63,7 @@ export default function Navbar() {
           <Link href="/hello">hello</Link>
         </div>
       </div>
-      <div className="flex flex-none flex-end border border-red-900 space-x-2">
+      <div className="flex flex-none flex-end md:hidden border border-red-900 space-x-2">
         <Link href="#" className="{/*border border-yellow-900*/}"><SearchIcon></SearchIcon></Link>
         <div>
           <button className="relative" onClick={() => handleCartClick()}>
@@ -103,7 +75,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-      <div className="hidden flex flex-none ml-2 border border-red-900">
+      <div className="hidden md:flex flex-none flex-end ml-2 border border-red-900 space-x-2">
         <Link href="#" className="border border-yellow-900"><SearchIcon></SearchIcon></Link>
         {/*<Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>*/}
         <Menu as="div" className="border border-green-900">
