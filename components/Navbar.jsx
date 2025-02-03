@@ -21,35 +21,37 @@ export default function Navbar() {
 
   // const person
   return (
-    <nav className="flex flex-wrap items-end justify-between bg-[#333] p-4 text-white">
-      <div className='flex-none'>
-      <Link href="/" className="hidden md:block">
-        <Image 
-          className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
-        </Image>
-      </Link>
-      <Link href="#" className="block sm:hidden">
-      <Image
-          className="invert w-[50px]"
-          src="/hamburger-md-svgrepo-com.svg"
-          alt="Hamburger menu"
-          width={50}
-          height={38}
-          priority
-        />
+    <nav className="relative flex w-full justify-between bg-gray-100 p-4">
+      <div className='flex-none flex-start border border-red-500'>
+        <Link href="#" className="block sm:hidden">
+          <Image
+              className="w-[30px]"
+              src="/hamburger-md-svgrepo-com.svg"
+              alt="Hamburger menu"
+              width={50}
+              height={38}
+              priority
+            />
         </Link>
         <Link href="#" className="hidden sm:block md:hidden">
-      <Image
-          className="invert w-[50px]"
-          src="/hamburger-md-svgrepo-com.svg"
-          alt="Hamburger menu"
-          width={50}
-          height={38}
-          priority
-        />
+          <Image
+              className="w-[30px]"
+              src="/hamburger-md-svgrepo-com.svg"
+              alt="Hamburger menu"
+              width={50}
+              height={38}
+              priority
+            />
         </Link>
-        </div>
-      <div className="block sm:hidden flex-1">
+      </div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 border border-red-500" >
+        <Link href="/" className="text-center sm:hidden">
+          <Image 
+            className="w-[100px]" src="/blackmotiv.svg" alt="Logo" width={100} height={50} priority>
+          </Image>
+        </Link>
+      </div>
+      <div className="hidden sm:hidden flex-1">
         <div className="flex justify-end space-x-4">
           <Link href="/theme">Theme</Link>
           <Link href="/books" className='hidden'>Books</Link>
@@ -89,7 +91,19 @@ export default function Navbar() {
           <Link href="/hello">hello</Link>
         </div>
       </div>
-      <div className="flex flex-none ml-2 border border-red-900">
+      <div className="flex flex-none flex-end border border-red-900 space-x-2">
+        <Link href="#" className="{/*border border-yellow-900*/}"><SearchIcon></SearchIcon></Link>
+        <div>
+          <button className="relative" onClick={() => handleCartClick()}>
+            {/*<Image src="./cart.svg" width={40} height={40} alt="shopping cart icon" />*/}
+            <ShoppingCartCheckoutIcon></ShoppingCartCheckoutIcon>
+            {globalContext.total > 0 && (<div className="rounded-full flex justify-center items-center bg-emerald-500 text-xs text-white absolute w-5 h-5 -bottom-1 -right-2">
+              {globalContext.total}
+            </div>)}
+          </button>
+        </div>
+      </div>
+      <div className="hidden flex flex-none ml-2 border border-red-900">
         <Link href="#" className="border border-yellow-900"><SearchIcon></SearchIcon></Link>
         {/*<Link href="#" ><PersonOutlineIcon></PersonOutlineIcon></Link>*/}
         <Menu as="div" className="border border-green-900">
