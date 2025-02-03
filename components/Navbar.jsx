@@ -18,7 +18,7 @@ export default function Navbar() {
 
   const { globalContext, incrementCounter, decrementCounter } = useGlobalContext();
   const handleCartClick = () => {};
-  
+
   // const person
   return (
     <nav className="flex flex-wrap items-end justify-between bg-[#333] p-4 text-white">
@@ -86,6 +86,7 @@ export default function Navbar() {
           <Link href="/popover" >Popover</Link>
           <Link href="/navbar" >ReactNavbar</Link>
           <Link href="/headless-ui" className="hidden">HeadlessUI</Link>
+          <Link href="/hello">hello</Link>
         </div>
       </div>
       <div className="flex flex-none ml-2 border border-red-900">

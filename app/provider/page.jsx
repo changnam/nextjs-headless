@@ -17,9 +17,6 @@ function Aside() {
 function App() {
   const {globalContext, decrementCounter, incrementCounter, user, loading, error } = useGlobalContext();
   
-  if (loading) return <p>Loading user...</p>;
-  if (error) return <p>Error: {error}</p>;
-
   useEffect(() => {
     if (globalContext.total == 0) {
       // console.log("globalContext", globalContext);
@@ -28,6 +25,9 @@ function App() {
     }
   }, []); // Runs only once after the initial render
 
+
+  if (loading) return <p>Loading user...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <AsideProvider>
