@@ -3,194 +3,174 @@
 @tailwind utilities;
 
 @layer base {
+  ::-webkit-scrollbar {
+    width: 16px;
+    border: 5px solid white;
+  }
+
   ::-webkit-scrollbar-thumb {
     background-color: #b0b0b0;
     background-clip: padding-box;
     border: 0.05em solid #eeeeee;
-    border-radius: 10px;
   }
-  
-  
+
+  ::-webkit-scrollbar-track {
+    /*background-color: #bbbbbb;*/
+    @apply bg-gray-100;
+  }
   /* Buttons */
-  
-   ::-webkit-scrollbar-button:single-button {
-    background-color: #bbbbbb;
-    display: block;
+  ::-webkit-scrollbar-button:single-button {
+    /*background-color: #bbbbbb;*/
+    @apply block bg-gray-100 border-solid h-[13px] w-[16px];
+    /*display: block;
     border-style: solid;
     height: 13px;
-    width: 16px;
+    width: 16px;*/
   }
-  
-  
   /* Up */
-  
-   ::-webkit-scrollbar-button:single-button:vertical:decrement {
-    border-width: 0 8px 8px 8px;
+  ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 0 8px 13px 8px;
     border-color: transparent transparent #555555 transparent;
   }
-  
-   ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+
+  ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
     border-color: transparent transparent #777777 transparent;
   }
-  /* Left */
-  
-   ::-webkit-scrollbar-button:single-button:horizontal:decrement {
-    border-width: 8px 0 8px 8px;
-    border-color: transparent transparent #555555 transparent;
-  }
-  
-   ::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
-    border-color: transparent transparent #777777 transparent;
-  }
-  
-  
   /* Down */
-  
-   ::-webkit-scrollbar-button:single-button:vertical:increment {
-    border-width: 8px 8px 0 8px;
+  ::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: 13px 8px 0 8px;
     border-color: #555555 transparent transparent transparent;
   }
-  
-   ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+
+  ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
     border-color: #777777 transparent transparent transparent;
   }
-  /* Right */
-  
-   ::-webkit-scrollbar-button:single-button:horizontal:increment {
-    border-width: 8px 8px 8px 0;
-    border-color: transparent transparent #555555 transparent;
-  }
-  
-   ::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
-    border-color: transparent transparent #777777 transparent;
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  
-  
-  /* Track */
-  
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
-}
 
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --breakpoint: "desktop"; /* Default */
-}
-
-@media (prefers-color-scheme: dark) {
   :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --breakpoint: "desktop"; /* Default */
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    :root {
+      --breakpoint: "mobile";
+    }
+  }
+  
+  @media (max-width: 768px) {
+    :root {
+      --breakpoint: "tablet";
+    }
+  }
+  
+  /* [] 는 attribute selector 
+     class="dark main" 처럼 multi인 경우 동작 안함. 아래의 .dark 를 사용할것 */
+  [class='dark'] {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-@media (max-width: 640px) {
-  :root {
-    --breakpoint: "mobile";
+  
+  [data-theme='dark'] {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --breakpoint: "tablet";
+  /*
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
-}
+  */
 
-/* class="dark main" 처럼 multi인 경우 동작 안함. 아래의 .dark 를 사용할것 
-[class='dark'] {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-*/
-[data-theme='dark'] {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .container {
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
 
-.container {
-  padding: 20px;
-}
-/*
-.navbar {
-  display: flex;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-}
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #0070f3;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .products-grid,
+  .collections-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product-card,
+  .collection-card {
+    background-color: #fff;
+    padding: 10px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .error-container {
+    text-align: center;
+    padding: 50px;
+  }
 
-.navbar a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-}
-
-.footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-}
-*/
-
-.btn-primary,
-.btn-secondary {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.btn-primary {
-  background-color: #0070f3;
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: #555;
-  color: #fff;
-}
-
-.products-grid,
-.collections-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.product-card,
-.collection-card {
-  background-color: #fff;
-  padding: 10px;
-  width: calc(33.333% - 20px);
-  box-sizing: border-box;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-}
-
-.error-container {
-  text-align: center;
-  padding: 50px;
 }
