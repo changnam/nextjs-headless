@@ -22,7 +22,13 @@ const nextConfig = {
             pathname: '/**', // Matches all paths
           },
         ],
-      },
+    },
+    /*
+    webpack: (config) => {
+      config.optimization.splitChunks = false; // Disable automatic chunk splitting
+      config.optimization.runtimeChunk = false; // Disable runtime chunk
+      return config;
+    },*/
 };
 
 export default nextConfig;
